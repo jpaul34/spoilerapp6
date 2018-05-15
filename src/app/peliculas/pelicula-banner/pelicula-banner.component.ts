@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-pelicula-banner',
@@ -10,10 +10,15 @@ export class PeliculaBannerComponent implements OnInit {
   descripcionImagen = 'Imagen de la pelicula Tomb Raider';
   nombrePelicula = 'Tomb Raider';
   descripcionPelicula = 'Alicia vikander,Walton Googins';
+  colorBoton = 'alert alert-primary';
+  texto = '1';
+
   esEstreno = false;
   textoEstreno: string;
   claseEstreno: string;
-  constructor() { }
+
+  constructor() {
+  }
 
 
   ngOnInit() {
@@ -23,6 +28,23 @@ export class PeliculaBannerComponent implements OnInit {
     } else {
       this.textoEstreno = 'Proximamente';
       this.claseEstreno = 'sa-color-estado-amarillo';
+    }
+  }
+
+  cambiarColor() {
+    if (this.colorBoton === 'alert alert-primary') {
+      this.texto = '2';
+      this.colorBoton = 'alert alert-success';
+    } else {
+      if (this.colorBoton === 'alert alert-success') {
+        this.texto = '3';
+        this.colorBoton = 'alert alert-secundary';
+      } else {
+        if (this.colorBoton === 'alert alert-secundary') {
+          this.colorBoton = 'alert alert-primary';
+          this.texto = '4';
+        }
+      }
     }
   }
 }
